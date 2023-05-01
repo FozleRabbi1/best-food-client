@@ -19,7 +19,11 @@ const router = createBrowserRouter([
                     <Blog></Blog>
                 </PrivateRoute>
             },
-            { path: "chef/:name", element: <ChefDitles></ChefDitles> },
+            {
+                path: "chef/:name", element: <PrivateRoute>
+                    <ChefDitles></ChefDitles>
+                </PrivateRoute>
+            },
             { path: "login", element: <Login></Login> },
             { path: "register", element: <Register></Register> },
             { path: "*", element: <NotFound></NotFound> }

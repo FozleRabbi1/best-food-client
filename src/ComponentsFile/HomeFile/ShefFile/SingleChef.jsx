@@ -12,7 +12,7 @@ const SingleChef = ({ data }) => {
     return (
         <div>
             <div className="">
-                <div className="card p-4  flex flex-col">
+                <div className="card p-4 flex flex-col">
 
                     <img src={ChefPicture} alt="" />
 
