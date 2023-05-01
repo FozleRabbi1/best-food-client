@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../SharedFile/RegisterLoginStyle.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import SocialLogin from "../SharedFile/SocialLogin/SocialLogin";
 // import { toast } from "react-toastify";
 // import { toast } from "react-toastify";
 
@@ -113,12 +114,15 @@ const Register = () => {
                 </div>
 
                 {
-                    error && <span className="text-red-500 text-sm " > {error}</span>
+                    error && <span className="text-red-500 text-sm text-center " > {error}</span>
                 }
                 <div className="inputBox">
                     <input type="submit" value="Create Account" />
                 </div>
-                <p>already a member ? <Link to={"/login"} >Log in</Link> </p>
+                <p className="-mb-2" >already a member ? <Link to={"/login"} >Log in</Link> </p>
+                <span className="text-white -my-3 ">or</span>
+
+                <SocialLogin></SocialLogin>
             </form>
         </div>
     );

@@ -1,10 +1,15 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase.config";
+import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider } from "firebase/auth";
+
 // import { toast } from "react-toastify";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+const gitProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -26,21 +31,28 @@ const AuthProvider = ({ children }) => {
     const loginUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
+    const googleLogin = () => {
+        return signInWithPopup(auth, googleProvider)
+    }
+    const githubLogin = () => {
+        return signInWithPopup(auth, gitProvider)
+    }
+
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            // setUser(null)
-            if(currentUser){
+            if (currentUser) {
                 setUser(currentUser)
-                if(!currentUser.photoURL){
+                setphoto(currentUser.photoURL)
+                if (!currentUser.photoURL) {
                     location.reload()
                 }
-                setphoto(currentUser.photoURL)
             }
         });
         return () => {
             return unSubscribe();
         }
     }, [])
+
     const logOut = () => {
         setUser(null)
         return signOut(auth)
@@ -52,7 +64,9 @@ const AuthProvider = ({ children }) => {
         updateUserData,
         loginUser,
         logOut,
-        photo : photo,
+        photo: photo,
+        googleLogin,
+        githubLogin
     }
     return (
         <AuthContext.Provider value={userInfo}>

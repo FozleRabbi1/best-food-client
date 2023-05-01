@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import SocialLogin from "../SharedFile/SocialLogin/SocialLogin";
 
 const Login = () => {
     const [showPass, setShowPass] = useState(false);
@@ -52,12 +53,14 @@ const Login = () => {
                     }</i>
                 </div>
                 {
-                    error && <span className="text-red-500" >{error}</span>
+                    error && <span className="text-red-500 text-center"  >{error}</span>
                 }
                 <div className="inputBox">
                     <input type="submit" value="Create Account" />
                 </div>
-                <p>Do not have an account ? <Link to={"/register"} >Sign Up</Link> </p>
+                <p className="-mb-2">Do not have an account ? <Link to={"/register"} >Sign Up</Link> </p>
+                <span className="text-white -my-3 ">or</span>
+                <SocialLogin></SocialLogin>
             </form>
         </div>
     );

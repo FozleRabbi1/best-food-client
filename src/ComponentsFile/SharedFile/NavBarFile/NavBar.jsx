@@ -1,5 +1,5 @@
 import { Transition } from "@headlessui/react";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import ActiveLink from "../../ActiveLinkFile/ActiveLink";
 import "./Nav.css"
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { user, logOut, photo } = useContext(AuthContext);
-    const [photoUrl, setPhotoUrl] = useState("")
+    // const [photoUrl, setPhotoUrl] = useState("")
     // console.log(user)
     const handleLogOut = () => {
         // console.log("clicked")
@@ -17,11 +17,11 @@ const NavBar = () => {
     }
     // console.log(user?.photoURL)
 
-    useEffect(()=>{
-        setPhotoUrl(user?.photoURL)
-    },[user])
-console.log(user)
-console.log(photoUrl)
+    // useEffect(()=>{
+    //     setPhotoUrl(user?.photoURL)
+    // },[user])
+// console.log(user)
+// console.log(photoUrl)
     // if(!user?.photoURL){
     //     location.reload();
     // }
