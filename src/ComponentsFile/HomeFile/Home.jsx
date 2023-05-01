@@ -14,12 +14,6 @@ const Home = () => {
                     <Carosule></Carosule>
                 </div>
 
-               
-
-                {/* <img src="https://images.pexels.com/photos/1482803/pexels-photo-1482803.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
-
-                <h2 className="text-red-700 " > this is home</h2> */}
-
             </div>
 
 

@@ -5,16 +5,21 @@ import "../SharedFile/RegisterLoginStyle.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 // import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 const Register = () => {
     const [againShowPass, setAgainShowPass] = useState(false);
     const [showPass, setShowPass] = useState(false);
     const [error, setError] = useState("");
-    const { createUser, updateUserData } = useContext(AuthContext)
+    const {user, createUser, updateUserData } = useContext(AuthContext)
+    // const navigate = useNavigate()
+    // logOut, ,
 
-    // if (user) {
-    //     toast("register successful")
-    // }
+    if (user) {
+        // navigate("/")
+        // toast.success('Registerd successfull')
+    }
+
 
     const registerHandler = (e) => {
         e.preventDefault();
@@ -58,7 +63,8 @@ const Register = () => {
             .catch(err => console.log(err?.message))
 
 
-
+           
+        
 
         // console.log(name, email, password, confirmPass)
 

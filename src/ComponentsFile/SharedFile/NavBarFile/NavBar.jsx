@@ -8,16 +8,19 @@ import { toast } from "react-toastify";
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, photo } = useContext(AuthContext);
     const [photoUrl, setPhotoUrl] = useState("")
-    console.log(user)
+    // console.log(user)
     const handleLogOut = () => {
+        // console.log("clicked")
         logOut();
     }
-    console.log(user?.photoURL)
+    // console.log(user?.photoURL)
+
     useEffect(()=>{
         setPhotoUrl(user?.photoURL)
     },[user])
+console.log(user)
 console.log(photoUrl)
     // if(!user?.photoURL){
     //     location.reload();
@@ -72,7 +75,7 @@ console.log(photoUrl)
                                     {
                                         user && <Avatar
                                             // img={user?.photoURL}
-                                            img={photoUrl}
+                                            img={photo}
                                             rounded={true}
                                             // bordered={true}
                                             stacked={true}

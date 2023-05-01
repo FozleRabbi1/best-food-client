@@ -9,7 +9,7 @@ const Login = () => {
     const { user, loginUser } = useContext(AuthContext);
     const [error, setError] = useState("");
     const location = useLocation();
-    const from = location.state?.from?.pathname || "login";
+    const from = location.state?.from?.pathname || "/";
     const navigate = useNavigate();
 
     if (user) {

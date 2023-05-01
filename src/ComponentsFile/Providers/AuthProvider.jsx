@@ -8,6 +8,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [photo, setphoto] = useState("");
 
     // if(user){
     //     toast("register successful")
@@ -27,14 +28,21 @@ const AuthProvider = ({ children }) => {
     }
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            
-            setUser(currentUser)
+            // setUser(null)
+            if(currentUser){
+                setUser(currentUser)
+                if(!currentUser.photoURL){
+                    location.reload()
+                }
+                setphoto(currentUser.photoURL)
+            }
         });
         return () => {
             return unSubscribe();
         }
     }, [])
     const logOut = () => {
+        setUser(null)
         return signOut(auth)
     }
 
@@ -43,7 +51,8 @@ const AuthProvider = ({ children }) => {
         createUser,
         updateUserData,
         loginUser,
-        logOut
+        logOut,
+        photo : photo,
     }
     return (
         <AuthContext.Provider value={userInfo}>
