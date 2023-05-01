@@ -38,7 +38,7 @@ console.log(photoUrl)
                         <div className="flex w-full justify-between items-center">
                             <div className="flex-shrink-0">
                                 <div className="typing">
-                                    <h2 className="text-uppercase"> comeSoon </h2>
+                                    <h2 className="text-uppercase"> BestFood </h2>
                                 </div>
                             </div>
                             <div className="hidden md:block">

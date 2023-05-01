@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 
 const Main = () => {
     return (
-        <div className=" px-2 md:px-4 lg:px-12">
+        <div className=" px-2 md:px-4 lg:px-12 bg-gray-900">
 
            <NavBar></NavBar>
            <Outlet></Outlet>
