@@ -6,6 +6,7 @@ import Login from "../LoginFile/Login";
 import Register from "../RegisterFile/Register";
 import Blog from "../BlogFile/Blog";
 import PrivateRoute from "../PrivateRouteFile/PrivateRoute";
+import ChefDitles from "../HomeFile/ShefFile/ChefDitlesFile/ChefDitles";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
                     <Blog></Blog>
                 </PrivateRoute>
             },
+            { path: "chef/:name", element: <ChefDitles></ChefDitles> },
             { path: "login", element: <Login></Login> },
             { path: "register", element: <Register></Register> },
             { path: "*", element: <NotFound></NotFound> }

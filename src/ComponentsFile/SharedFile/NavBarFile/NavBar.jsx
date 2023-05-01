@@ -54,7 +54,7 @@ const NavBar = () => {
                                         Home
                                     </ActiveLink>
                                     <ActiveLink
-                                        to="blog"
+                                        to="/blog"
                                         className="  text-white px-3 py-0 rounded-md text-sm font-medium"
                                     >
                                         Blog
