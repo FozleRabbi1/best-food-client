@@ -14,6 +14,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/", element: <Home></Home>,
+                // loader: () => fetch("http://localhost:5000/allFoods")
                 loader: () => fetch("https://assignment-ten-server-fozlerabbi1.vercel.app/allFoods")
             },
             {

@@ -13,17 +13,17 @@ const Register = () => {
     const [againShowPass, setAgainShowPass] = useState(false);
     const [showPass, setShowPass] = useState(false);
     const [error, setError] = useState("");
-    const { createUser, updateUserData, logOut } = useContext(AuthContext)
+    const { createUser, updateUserData } = useContext(AuthContext)
 
     // const navigate = useNavigate()
     // logOut, ,
 
-    const logOutFun = () => {
-        // console.log("calll")
-        logOut();
-        // navigate("/login")
-        // <Navigate to={"/login"}></Navigate>
-    }
+    // const logOutFun = () => {
+    //     // console.log("calll")
+    //     logOut();
+    //     // navigate("/login")
+    //     // <Navigate to={"/login"}></Navigate>
+    // }
     // if (user) {
     //     // navigate("/")
     //     // toast.success('Registerd successfull')
@@ -63,19 +63,20 @@ const Register = () => {
         createUser(email, password)
             .then(res => {
                 console.log(res)
-                toast.success("register successful you can login right now", {
+                toast.success("register successful", {
                     position: "top-center"
                 })
-                logOutFun()
+
                 updateUserData(name, photo)
                     .then((res) => {
                         console.log(res)
                         // if (res.user) {
-                            // console.log(res.user);
-                            // logOutFun()
-                            // logOutFun()
-                            // navigate("/login")
+                        // console.log(res.user);
+                        // logOutFun()
+                        // logOutFun()
+                        // navigate("/login")
                         // }
+                        // logOutFun()
                     })
                     .catch(err => console.log(err.message));
 
