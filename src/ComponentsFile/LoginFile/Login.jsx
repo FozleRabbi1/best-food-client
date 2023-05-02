@@ -7,15 +7,15 @@ import SocialLogin from "../SharedFile/SocialLogin/SocialLogin";
 
 const Login = () => {
     const [showPass, setShowPass] = useState(false);
-    const {user, loginUser, loading } = useContext(AuthContext);
+    const {user, loginUser } = useContext(AuthContext);
     const [error, setError] = useState("");
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/";
 
-    if (loading) {
-        return <p className="text-white" >Loading....................</p>
-    }
+    // if (loading) {
+    //     return <p className="text-white" >Loading....................</p>
+    // }
 
     if (user) {
         navigate(from, { replace: true })

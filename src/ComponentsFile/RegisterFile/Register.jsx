@@ -74,11 +74,11 @@ const Register = () => {
                             // logOutFun()
                         }
                     })
-                    .catch(err => console.error(err.message));
+                    .catch(err => setError(err.message));
 
                 // logOutFun()
             })
-            .catch(err => console.log(err?.message))
+            .catch(err => setError(err?.message))
 
 
 
