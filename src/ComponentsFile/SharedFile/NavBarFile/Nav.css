@@ -55,6 +55,11 @@
     margin-bottom: 0;
     animation: type 5s steps(11) infinite;
 }
+.togolStyle{
+    background-color: rgba(24, 25, 0, 0.9);
+    /* color: black; */
+    box-shadow: #4FC3F7 0px 15px 15px -15px inset, #4FC3F7 0px -15px 15px -15px inset;
+}
 
 @keyframes type {
 

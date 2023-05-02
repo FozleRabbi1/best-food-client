@@ -62,7 +62,7 @@ const Register = () => {
 
         createUser(email, password)
             .then(res => {
-                console.log(res.user)
+                console.log(res)
                 toast.success("register successful you can login right now", {
                     position: "top-center"
                 })
@@ -77,12 +77,12 @@ const Register = () => {
                             // navigate("/login")
                         // }
                     })
-                    .catch(err => setError(err.message));
+                    .catch(err => console.log(err.message));
 
 
 
             })
-            .catch(err => console.error(err?.message))
+            .catch(err => setError(err?.message))
 
 
 

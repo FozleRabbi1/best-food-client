@@ -6,6 +6,8 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import Test from "./ShefFile/ChefDitlesFile/TrstSwipre/Test";
+import ContacthtmlForm from "./ShefFile/ContactForm/ContactForm";
+import FooterPage from "../SharedFile/FooterFile/FooterPage";
 
 
 const Home = () => {
@@ -27,11 +29,11 @@ const Home = () => {
                 <Test foodDatas={foodDatas} ></Test>
             </div>
 
-            <div>
-                
+            <div className="">
+                <ContacthtmlForm></ContacthtmlForm>
             </div>
 
-
+            <FooterPage></FooterPage>
 
         </div>
     );

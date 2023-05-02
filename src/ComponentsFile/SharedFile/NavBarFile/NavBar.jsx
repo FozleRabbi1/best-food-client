@@ -11,13 +11,8 @@ const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
-        // console.log("clicked")
         logOut();
-    }   
-
-    // setInterval(() => {
-    //     location.reload();
-    // }, 5000);
+    }
 
     const showNameFun = () => {
         console.log("cool")
@@ -39,7 +34,6 @@ const NavBar = () => {
                             </div>
                             <div className="hidden md:block">
                                 <div className="ml-10 flex items-center space-x-4">
-                                    {/* <div className="ml-10 flex items-baseline space-x-4"> */}
                                     <ActiveLink
                                         to="/"
                                         className="  text-white px-3 py-0 rounded-md text-sm font-medium"
@@ -64,20 +58,15 @@ const NavBar = () => {
                                         user ? <ActiveLink className=""> <button onClick={handleLogOut} className=" signOutStyle text-white px-3 py-2 rounded-md text-sm font-medium">SignOut</button> </ActiveLink> :
                                             <ActiveLink to="login" className="  text-white px-3 py-2 rounded-md text-sm font-medium">Login</ActiveLink>
                                     }
-                                    {/* <ActiveLink> */}
                                     {
                                         user && <Avatar
                                             img={user?.photoURL}
-                                            // img={photo}
                                             rounded={true}
-                                            // bordered={true}
                                             stacked={true}
                                             onMouseOver={showNameFun}
                                             color="purple"
                                         />
                                     }
-                                    {/* <img className=" w-12 p-1 h-12 rounded-lg " src={user?.photoURL} alt="" /> */}
-                                    {/* </ActiveLink> */}
 
 
                                 </div>
@@ -141,41 +130,31 @@ const NavBar = () => {
                 >
                     {(ref) => (
                         <div className="md:hidden" id="mobile-menu">
-                            <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                                <a
-                                    href="#"
-                                    className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                            <div ref={ref} className="px-2 togolStyle pt-2 pb-3 grid grid-row space-y-1 sm:px-3">
+                                <ActiveLink
+                                    to="/"
+                                    className="  text-white px-3 py-0 rounded-md text-sm font-medium"
                                 >
-                                    Dashboard
-                                </a>
+                                    Home
+                                </ActiveLink>
+                                <ActiveLink
+                                    to="/blog"
+                                    className="  text-white px-3 py-0 rounded-md text-sm font-medium"
+                                >
+                                    Blog
+                                </ActiveLink>
 
-                                <a
-                                    href="#"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                <ActiveLink
+                                    to="register"
+                                    className="  text-white px-3 py-2 rounded-md text-sm font-medium"
                                 >
-                                    Team
-                                </a>
+                                    Register
+                                </ActiveLink>
 
-                                <a
-                                    href="#"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                                >
-                                    Projects
-                                </a>
-
-                                <a
-                                    href="#"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                                >
-                                    Calendar
-                                </a>
-
-                                <a
-                                    href="#"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                                >
-                                    Reports
-                                </a>
+                                {
+                                    user ? <ActiveLink className=""> <button onClick={handleLogOut} className=" signOutStyle text-white px-3 py-2 rounded-md text-sm font-medium">SignOut</button> </ActiveLink> :
+                                        <ActiveLink to="login" className="  text-white px-3 py-2 rounded-md text-sm font-medium">Login</ActiveLink>
+                                }
                             </div>
                         </div>
                     )}

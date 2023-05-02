@@ -8,13 +8,13 @@ const SocialLogin = () => {
     const googleLoginFun = () => {
         setError("")
         googleLogin()
-            .then(res => console.log(res.user))
+            .then(res => console.log(res))
             .catch(err => setError(err.message))
     }
     const githubLoginFun = () => {
         setError("")
         githubLogin()
-            .then(res => console.log(res.user))
+            .then(res => console.log(res))
             .catch(err => setError(err.message))
     }
 

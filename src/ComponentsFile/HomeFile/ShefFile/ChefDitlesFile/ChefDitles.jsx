@@ -7,6 +7,7 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import FooterPage from "../../../SharedFile/FooterFile/FooterPage";
 
 const ChefDitles = () => {
     const [data, setData] = useState({})
@@ -91,6 +92,8 @@ const ChefDitles = () => {
                         </div>)
                 }
             </div>
+
+            <FooterPage></FooterPage>
 
         </div>
     );
