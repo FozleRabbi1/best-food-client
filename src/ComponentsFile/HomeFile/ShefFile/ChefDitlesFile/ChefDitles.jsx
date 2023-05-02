@@ -16,13 +16,15 @@ const ChefDitles = () => {
     const [favurite, setFavourite] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/chef/${name.name}`)
+        // fetch(`http://localhost:5000/chef/${name.name}`)
+        fetch(`https://assignment-ten-server-fozlerabbi1.vercel.app/chef/${name.name}`)
             .then(res => res.json())
             .then(data => setData(data))
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allFoods/${name.name}`)
+        // fetch(`http://localhost:5000/allFoods/${name.name}`)
+        fetch(`https://assignment-ten-server-fozlerabbi1.vercel.app/allFoods/${name.name}`)
             .then(res => res.json())
             .then(data => allFood(data))
     }, [])
