@@ -69,16 +69,20 @@ const Register = () => {
                 logOutFun()
                 updateUserData(name, photo)
                     .then((res) => {
-                        if(res.user){
-                            console.log(res.user);
+                        console.log(res)
+                        // if (res.user) {
+                            // console.log(res.user);
                             // logOutFun()
-                        }
+                            // logOutFun()
+                            // navigate("/login")
+                        // }
                     })
                     .catch(err => setError(err.message));
 
-                // logOutFun()
+
+
             })
-            .catch(err => setError(err?.message))
+            .catch(err => console.error(err?.message))
 
 
 

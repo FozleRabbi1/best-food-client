@@ -13,9 +13,7 @@ const Login = () => {
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/";
 
-    // if (loading) {
-    //     return <p className="text-white" >Loading....................</p>
-    // }
+    
 
     if (user) {
         navigate(from, { replace: true })

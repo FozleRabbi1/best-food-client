@@ -2,3 +2,15 @@
     height: 450px;
     width: 350px;
 }
+.food{
+    /* border: 2px solid red; */
+    /* box-shadow: 0 2px 4px 0 #4FC3F7, 0 1px 5px 0 #4FC3F7; */
+    border-top: 1px solid #4FC3F7;
+    box-shadow: 0px -23px 25px 0px rgba(101, 189, 230, 0.17) inset, 0px -36px 30px 0px rgba(0, 0, 0, 0.15) inset, 0px -79px 40px 0px rgba(104, 207, 233, 0.1) inset, 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 4px 2px rgba(0, 0, 0, 0.09), 0px 8px 4px rgba(0, 0, 0, 0.09), 0px 16px 8px rgba(121, 200, 219, 0.09);
+}
+.addSelectStyle{
+    color: red;
+}
+.removeStyle{
+    color: rgb(192, 191, 236);
+}

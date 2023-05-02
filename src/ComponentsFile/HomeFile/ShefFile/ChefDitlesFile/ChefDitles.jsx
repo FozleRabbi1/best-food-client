@@ -3,11 +3,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import './CHefDitles.css';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const ChefDitles = () => {
     const [data, setData] = useState({})
     const [foods, allFood] = useState([])
     const name = useParams();
+    const [favurite, setFavourite] = useState([])
 
     useEffect(() => {
         fetch(`http://localhost:5000/chef/${name.name}`)
@@ -21,7 +26,18 @@ const ChefDitles = () => {
             .then(data => allFood(data))
     }, [])
 
-    console.log(foods)
+    // console.log(foods)
+    // let getFavouriteId = []
+
+    const isLikeFun = (id) => {
+        // console.log(id)
+        const newData = [...favurite, id]
+        setFavourite(newData)
+    }
+    
+    // const hasCommonValues = foods.some(value => favurite.includes(value.id));
+
+
 
     return (
         <div>
@@ -41,23 +57,40 @@ const ChefDitles = () => {
                 </div>
             </div>
 
-            <div className="all-recipes text-white grid lg:grid-cols-2 gap-8  mt-24 pb-10 mx-24">
-               {
-                foods.map((d, index) => <div key={index}>
-                    <img className="bg-gray-400 md:w-3/5 h-56 " src={d.recipe.image} alt="" />
-                    <h2 className=" text-xl ">{d.recipe.name}</h2>      
-                    <p>rating : {d.recipe.rating}</p> 
-                    <ul>
-                        {
-                            d?.recipe?.ingredients.map((i, index) => <li key={index}>** {i}</li> )
-                        }
-                    </ul>
-                    <p>{d.recipe.method.slice(0,200)}...</p>  
+            <div className="all-recipes text-white    mt-24 pb-10 mx-24">
+                {
+                    foods.map((d, index) =>
+                        <div className="" key={index}>
 
-                </div> )
-               }
+                            <div className="food grid grid-cols-3 gap-8 mb-10 ">
+                                <div className="image">
+                                    <img className="bg-gray-400 w-full h-64 " src={d.recipe.image} alt="" />
+                                </div>
+
+                                <div className="info pt-2">
+                                    <h2 className=" text-xl ">{d.recipe.name}</h2>
+                                    <p className="text-sm">{d.recipe.method.slice(0, 200)}...</p>
+                                </div>
+
+                                <div className="reating pt-2">
+                                    <ul>
+                                        {
+                                            d?.recipe?.ingredients.map((i, index) => <li className=" text-sm " key={index}>** {i}</li>)
+                                        }
+                                    </ul>
+                                    <Rating
+                                        style={{ maxWidth: 90 }}
+                                        value={d.recipe.rating}
+                                        readOnly
+                                    />
+
+                                    <FontAwesomeIcon onClick={() => isLikeFun(d.id)} className={`text-2xl mt-1 ${favurite.includes(d.id) ? "text-red-700" : "none"} `} icon={faHeart} />
+                                    {/* <FontAwesomeIcon onMouseUp={()=>setIslike(!isLike)} className={`text-2xl mt-1 ${isLike ? "addSelectStyle" : "removeStyle"} `} icon={faHeart} /> */}
+                                </div>
+                            </div>
+                        </div>)
+                }
             </div>
-
 
         </div>
     );
