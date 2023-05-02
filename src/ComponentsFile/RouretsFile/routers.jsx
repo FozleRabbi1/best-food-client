@@ -23,6 +23,7 @@ const router = createBrowserRouter([
                 path: "chef/:name", element: <PrivateRoute>
                     <ChefDitles></ChefDitles>
                 </PrivateRoute>
+                // loader : ({params})=> fetch(`http://localhost:5000/chef/${params.name}`)
             },
             { path: "login", element: <Login></Login> },
             { path: "register", element: <Register></Register> },

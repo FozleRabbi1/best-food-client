@@ -5,6 +5,7 @@ import "../SharedFile/RegisterLoginStyle.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import SocialLogin from "../SharedFile/SocialLogin/SocialLogin";
+import { toast } from "react-toastify";
 // import { toast } from "react-toastify";
 // import { toast } from "react-toastify";
 
@@ -12,14 +13,21 @@ const Register = () => {
     const [againShowPass, setAgainShowPass] = useState(false);
     const [showPass, setShowPass] = useState(false);
     const [error, setError] = useState("");
-    const {user, createUser, updateUserData } = useContext(AuthContext)
+    const { createUser, updateUserData, logOut } = useContext(AuthContext)
+
     // const navigate = useNavigate()
     // logOut, ,
 
-    if (user) {
-        // navigate("/")
-        // toast.success('Registerd successfull')
+    const logOutFun = () => {
+        // console.log("calll")
+        logOut();
+        // navigate("/login")
+        // <Navigate to={"/login"}></Navigate>
     }
+    // if (user) {
+    //     // navigate("/")
+    //     // toast.success('Registerd successfull')
+    // }
 
 
     const registerHandler = (e) => {
@@ -55,17 +63,26 @@ const Register = () => {
         createUser(email, password)
             .then(res => {
                 console.log(res.user)
-
+                toast.success("register successful you can login right now", {
+                    position: "top-center"
+                })
+                logOutFun()
                 updateUserData(name, photo)
-                    .then(() => console.log("profile updated"))
+                    .then((res) => {
+                        if(res.user){
+                            console.log(res.user);
+                            // logOutFun()
+                        }
+                    })
                     .catch(err => console.error(err.message));
 
+                // logOutFun()
             })
             .catch(err => console.log(err?.message))
 
 
-           
-        
+
+
 
         // console.log(name, email, password, confirmPass)
 

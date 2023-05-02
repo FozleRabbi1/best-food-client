@@ -7,16 +7,23 @@ import SocialLogin from "../SharedFile/SocialLogin/SocialLogin";
 
 const Login = () => {
     const [showPass, setShowPass] = useState(false);
-    const { user, loginUser } = useContext(AuthContext);
+    const {user, loginUser, loading } = useContext(AuthContext);
     const [error, setError] = useState("");
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
     const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
+
+    if (loading) {
+        return <p className="text-white" >Loading....................</p>
+    }
 
     if (user) {
         navigate(from, { replace: true })
     }
     // console.log(user)
+    // const navigateNow = () => {
+    //     setTimeout(() => { navigate(from, { replace: true }) }, 1)
+    // }
 
     const loginHandler = (e) => {
         e.preventDefault();
@@ -25,7 +32,10 @@ const Login = () => {
         const password = e.target.password.value;
 
         loginUser(email, password)
-            .then(res => console.log(res.user))
+            .then(res => {
+                console.log(res.user)
+                // navigateNow();
+            })
             .catch(err => {
                 setError(err.message)
             })

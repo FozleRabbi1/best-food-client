@@ -13,15 +13,17 @@ const gitProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [photo, setphoto] = useState("");
+    // const [photo, setphoto] = useState("");
+    const [loading, setLoading] = useState(true);
 
-    // if(user){
-    //     toast("register successful")
-    // }
+    
+    // console.log(user)
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const updateUserData = (name, photoUrl) => {
+        setLoading(true)
         const auth = getAuth();
         updateProfile(auth.currentUser, {
             displayName: name,
@@ -29,31 +31,49 @@ const AuthProvider = ({ children }) => {
         })
     }
     const loginUser = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     const googleLogin = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
     const githubLogin = () => {
+        setLoading(true)
         return signInWithPopup(auth, gitProvider)
     }
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            if (currentUser) {
-                setUser(currentUser)
-                setphoto(currentUser.photoURL)
-                if (!currentUser.photoURL) {
-                    location.reload()
-                }
-            }
+            setUser(currentUser)
+
+            // if (!currentUser.photoUrl) {
+            //     location.reload()
+            // }
+            // setLoading(false)
+            // if (currentUser) {
+            // console.log(user)
+            // setphoto(user.photoURL)
+            // if (!currentUser.photoURL) {
+            //     setUser(currentUser)
+            //     // setLoading(false)
+            //     // setphoto(currentUser.photoURL)
+            //     // location.reload()
+            // }
+            // }
+            
+            setLoading(false)
+
+
         });
         return () => {
+            // setLoading(false)
             return unSubscribe();
         }
-    }, [])
+    }, [user])
 
     const logOut = () => {
+        setLoading(true)
         setUser(null)
         return signOut(auth)
     }
@@ -64,9 +84,10 @@ const AuthProvider = ({ children }) => {
         updateUserData,
         loginUser,
         logOut,
-        photo: photo,
+        // photo: photo,
         googleLogin,
-        githubLogin
+        githubLogin,
+        loading: loading
     }
     return (
         <AuthContext.Provider value={userInfo}>

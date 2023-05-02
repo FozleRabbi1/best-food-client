@@ -8,25 +8,18 @@ import { toast } from "react-toastify";
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { user, logOut, photo } = useContext(AuthContext);
-    // const [photoUrl, setPhotoUrl] = useState("")
-    // console.log(user)
+    const { user, logOut } = useContext(AuthContext);
+
     const handleLogOut = () => {
         // console.log("clicked")
         logOut();
-    }
-    // console.log(user?.photoURL)
+    }   
 
-    // useEffect(()=>{
-    //     setPhotoUrl(user?.photoURL)
-    // },[user])
-// console.log(user)
-// console.log(photoUrl)
-    // if(!user?.photoURL){
+    // setInterval(() => {
     //     location.reload();
-    // }
+    // }, 5000);
 
-    const showNameFun = () =>{
+    const showNameFun = () => {
         console.log("cool")
         toast(user?.displayName, {
             position: "top-center"
@@ -34,7 +27,7 @@ const NavBar = () => {
     }
     return (
         <div className=' sticky top-0 z-50 '>
-            
+
             <nav className="nav-style">
                 <div className=" mx-auto px-10 lg:px-4 py-2">
                     <div className="flex items-center justify-between">
@@ -74,8 +67,8 @@ const NavBar = () => {
                                     {/* <ActiveLink> */}
                                     {
                                         user && <Avatar
-                                            // img={user?.photoURL}
-                                            img={photo}
+                                            img={user?.photoURL}
+                                            // img={photo}
                                             rounded={true}
                                             // bordered={true}
                                             stacked={true}

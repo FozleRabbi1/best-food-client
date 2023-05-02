@@ -7,7 +7,7 @@ import LazyLoad from 'react-lazy-load'
 // https://meet.google.com/mkp-riks-cpw
 
 const SingleChef = ({ data }) => {
-    console.log(data)
+    // console.log(data)
     const { ChefName, ChefPicture, Likes, NumbersOfRecipes, YearsOfExperience } = data;
 
 
@@ -27,7 +27,7 @@ const SingleChef = ({ data }) => {
                     <div className="text mt-12">
                         <p className=" pt-1">Nane : {ChefName}</p>
                         <p>Recipes : {NumbersOfRecipes}</p>
-                        <p> Experience : {YearsOfExperience}/Y</p>
+                        <p> Experience : {YearsOfExperience} Y</p>
                         <p> Likes : {Likes}</p>
                     </div>
                     <Link to={`chef/${ChefName.replace(/\s+/g, '')}`} >

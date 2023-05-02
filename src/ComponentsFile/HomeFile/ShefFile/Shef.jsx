@@ -11,7 +11,7 @@ const Shef = () => {
             .then(data => setChefData(data))
             .catch(err => console.error(err.message))
     }, [])
-    console.log(chefData)
+    // console.log(chefData)
     return (
         <div className="text-white -mt-10 md:py-20">
             <h2 className="text-center text-xl md:text-3xl ">... All Chef ...</h2>
