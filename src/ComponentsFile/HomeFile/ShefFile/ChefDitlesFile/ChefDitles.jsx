@@ -8,6 +8,7 @@ import '@smastrom/react-rating/style.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import FooterPage from "../../../SharedFile/FooterFile/FooterPage";
+import { toast } from "react-toastify";
 
 const ChefDitles = () => {
     const [data, setData] = useState({})
@@ -38,6 +39,9 @@ const ChefDitles = () => {
         setFavourite(newData)
     }
     
+    const showTostFun = () =>{
+        toast("select to favourite list")
+    }
     // const hasCommonValues = foods.some(value => favurite.includes(value.id));
 
 
@@ -88,7 +92,7 @@ const ChefDitles = () => {
                                         readOnly
                                     />
 
-                                    <FontAwesomeIcon onClick={() => isLikeFun(d.id)} className={`text-2xl mt-1 ${favurite.includes(d.id) ? "text-red-700" : "none"} `} icon={faHeart} />
+                                    <FontAwesomeIcon onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className={`text-2xl mt-1 ${favurite.includes(d.id) ? "text-red-700" : "none"} `} icon={faHeart} />
                                     {/* <FontAwesomeIcon onMouseUp={()=>setIslike(!isLike)} className={`text-2xl mt-1 ${isLike ? "addSelectStyle" : "removeStyle"} `} icon={faHeart} /> */}
                                 </div>
                             </div>
