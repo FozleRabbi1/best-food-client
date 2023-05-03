@@ -1,20 +1,15 @@
-// import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
 import "./Test.css";
 
-// import required modules
 import { EffectCoverflow, Pagination } from "swiper";
 import { useEffect, useState } from "react";
 
 export default function Test() {
-    // console.log(foodDatas)
     const [foodDatas, setFoodDatas] = useState([])
     useEffect(()=>{
         fetch("https://assignment-ten-server-fozlerabbi1.vercel.app/allFoods")

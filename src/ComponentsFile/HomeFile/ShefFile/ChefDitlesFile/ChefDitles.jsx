@@ -30,19 +30,15 @@ const ChefDitles = () => {
             .then(data => allFood(data))
     }, [])
 
-    // console.log(foods)
-    // let getFavouriteId = []
 
     const isLikeFun = (id) => {
-        // console.log(id)
         const newData = [...favurite, id]
         setFavourite(newData)
     }
-    
-    const showTostFun = () =>{
+
+    const showTostFun = () => {
         toast("selected to favourite list")
     }
-    // const hasCommonValues = foods.some(value => favurite.includes(value.id));
 
 
 
@@ -57,7 +53,6 @@ const ChefDitles = () => {
                     <h2 className="text-red-700">{data?.ChefName}</h2>
                     <p className="text-white"> <span className="text-green-400">Some info : </span> {data?.description}</p>
                     <ul className="mt-2">
-                        {/* <li> <span className="text-green-400">Recipes</span> :  {data?.NumbersOfRecipes}  </li> */}
                         <li> <span className="text-green-400">Experience</span> :  {data?.YearsOfExperience} Y  </li>
                         <li> <span className="text-green-400">Likes</span> :  {data?.Likes}  </li>
                         <li> <span className="text-green-400">Total recipes</span> :  {foods?.length}  </li>
@@ -92,8 +87,13 @@ const ChefDitles = () => {
                                         readOnly
                                     />
 
-                                    <FontAwesomeIcon onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className={`text-2xl mt-1 ${favurite.includes(d.id) ? "text-red-700" : "none"} `} icon={faHeart} />
-                                    {/* <FontAwesomeIcon onMouseUp={()=>setIslike(!isLike)} className={`text-2xl mt-1 ${isLike ? "addSelectStyle" : "removeStyle"} `} icon={faHeart} /> */}
+                                    {/* <FontAwesomeIcon onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className={`text-2xl mt-1 ${favurite.includes(d.id) ? `text-red-700 ${disabled}` : "none"} `} icon={faHeart} /> */}
+                                    {/* <FontAwesomeIcon onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className={`text-2xl mt-1 ${favurite.includes(d.id) ? "text-red-700 disabled " : "none"} `} icon={faHeart} /> */}
+                                    {/* <FontAwesomeIcon  onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className="text-2xl mt-1" disabled={favurite.includes(d.id)}   icon={faHeart} /> */}
+                                    <button disabled={favurite.includes(d.id)}>
+                                    {/* <FontAwesomeIcon  onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className="text-2xl mt-1"    icon={faHeart} /> */}
+                                    <FontAwesomeIcon  onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className={`text-2xl mt-1 ${favurite.includes(d.id) ? "text-red-700 disabled " : "none"}`}   icon={faHeart} />
+                                    </button>
                                 </div>
                             </div>
                         </div>)

@@ -7,7 +7,6 @@ const Carosule = () => {
     return (
         <div>
             <div className=" carousel-div">
-            {/* <div className=" carousel-div h-56 sm:h-64 md:h-96 lg:h-screen py-10"> */}
                 <Carousel>
                     <img
                         className=""

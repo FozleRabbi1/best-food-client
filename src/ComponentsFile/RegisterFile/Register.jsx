@@ -16,14 +16,6 @@ const Register = () => {
     const { createUser, updateUserData, user } = useContext(AuthContext)
 
     const navigate = useNavigate()
-    // logOut, ,
-
-    // const logOutFun = () => {
-    //     // console.log("calll")
-    //     logOut();
-    //     // navigate("/login")
-    //     // <Navigate to={"/login"}></Navigate>
-    // }
     if (user) {
         navigate("/")
     }
@@ -68,14 +60,6 @@ const Register = () => {
 
                 updateUserData(name, photo)
                     .then(() => {
-                        // console.log(res)
-                        // if (res.user) {
-                        // console.log(res.user);
-                        // logOutFun()
-                        // logOutFun()
-                        // navigate("/login")
-                        // }
-                        // logOutFun()
                     })
                     .catch(err => console.log(err.message));
 
@@ -84,11 +68,6 @@ const Register = () => {
             })
             .catch(err => setError(err?.message))
 
-
-
-
-
-        // console.log(name, email, password, confirmPass)
 
 
     }

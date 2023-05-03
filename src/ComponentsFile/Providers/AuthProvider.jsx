@@ -4,7 +4,6 @@ import app from "../firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
 import { GithubAuthProvider } from "firebase/auth";
 
-// import { toast } from "react-toastify";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -13,11 +12,9 @@ const gitProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    // const [photo, setphoto] = useState("");
     const [loading, setLoading] = useState(true);
 
     
-    // console.log(user)
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
@@ -28,7 +25,7 @@ const AuthProvider = ({ children }) => {
         const updatedUser = {...user}
         updatedUser.displayName = name;
         updatedUser.photoURL = photoUrl;
-        
+
         setUser(updatedUser);
         const auth = getAuth();
         return updateProfile(auth.currentUser, {
@@ -53,20 +50,6 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
 
-            // if (!currentUser.photoUrl) {
-            //     location.reload()
-            // }
-            // setLoading(false)
-            // if (currentUser) {
-            // console.log(user)
-            // setphoto(user.photoURL)
-            // if (!currentUser.photoURL) {
-            //     setUser(currentUser)
-            //     // setLoading(false)
-            //     // setphoto(currentUser.photoURL)
-            //     // location.reload()
-            // }
-            // }
             
             setLoading(false)
 
@@ -78,7 +61,6 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const logOut = () => {
-        // setLoading(true)
         setUser(null)
         return signOut(auth)
     }
@@ -89,7 +71,6 @@ const AuthProvider = ({ children }) => {
         updateUserData,
         loginUser,
         logOut,
-        // photo: photo,
         googleLogin,
         githubLogin,
         loading: loading

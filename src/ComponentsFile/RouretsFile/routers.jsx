@@ -4,7 +4,6 @@ import Home from "../HomeFile/Home";
 import NotFound from "../NotFoundFile/NotFound";
 import Login from "../LoginFile/Login";
 import Register from "../RegisterFile/Register";
-// import Blog from "../BlogFile/Blog";
 import PrivateRoute from "../PrivateRouteFile/PrivateRoute";
 import ChefDitles from "../HomeFile/ShefFile/ChefDitlesFile/ChefDitles";
 import BlogMainPage from "../BlogFile/BlogMainPage/BlogMainPage";
@@ -22,7 +21,6 @@ const router = createBrowserRouter([
                 path: "blog",
                 element: <PrivateRoute>
                     <BlogMainPage></BlogMainPage>
-                    {/* <Blog></Blog> */}
                 </PrivateRoute>
             },
             {

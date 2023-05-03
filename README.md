@@ -7,6 +7,9 @@
  # some information about this project
  * -This is a chef related project
  * -there are have some international level chef information 
+ * -this project is user friendly
+ * -there have some demo of all chef's dishes
+ * -site is not completed working process is running
  
 
  # How to build this project

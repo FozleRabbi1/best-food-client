@@ -18,10 +18,6 @@ const Login = () => {
     if (user) {
         navigate(from, { replace: true })
     }
-    // console.log(user)
-    // const navigateNow = () => {
-    //     setTimeout(() => { navigate(from, { replace: true }) }, 1)
-    // }
 
     const loginHandler = (e) => {
         e.preventDefault();
@@ -31,8 +27,6 @@ const Login = () => {
 
         loginUser(email, password)
             .then(() => {
-                // console.log(res)
-                // navigateNow();
             })
             .catch(err => {
                 setError(err.message)

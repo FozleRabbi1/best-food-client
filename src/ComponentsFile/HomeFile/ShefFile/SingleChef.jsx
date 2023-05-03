@@ -4,10 +4,8 @@ import { faArrowRight, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load'
 
-// https://meet.google.com/mkp-riks-cpw
 
 const SingleChef = ({ data }) => {
-    // console.log(data)
     const { ChefName, ChefPicture, Likes, NumbersOfRecipes, YearsOfExperience } = data;
 
 
@@ -20,7 +18,6 @@ const SingleChef = ({ data }) => {
 
 
                 <div className="card p-4 flex flex-col">
-                    {/* <img src={ChefPicture} alt="" /> */}
                     <LazyLoad className='' width={250} height={220} threshold={0.99}>
                         <img className="bg-gray-500" src={ChefPicture} alt="feb 20" />
                     </LazyLoad>
