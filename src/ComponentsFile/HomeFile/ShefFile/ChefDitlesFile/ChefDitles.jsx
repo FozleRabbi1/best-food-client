@@ -87,13 +87,17 @@ const ChefDitles = () => {
                                         readOnly
                                     />
 
-                                    {/* <FontAwesomeIcon onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className={`text-2xl mt-1 ${favurite.includes(d.id) ? `text-red-700 ${disabled}` : "none"} `} icon={faHeart} /> */}
-                                    {/* <FontAwesomeIcon onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className={`text-2xl mt-1 ${favurite.includes(d.id) ? "text-red-700 disabled " : "none"} `} icon={faHeart} /> */}
-                                    {/* <FontAwesomeIcon  onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className="text-2xl mt-1" disabled={favurite.includes(d.id)}   icon={faHeart} /> */}
-                                    <button disabled={favurite.includes(d.id)}>
-                                    {/* <FontAwesomeIcon  onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className="text-2xl mt-1"    icon={faHeart} /> */}
-                                    <FontAwesomeIcon  onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className={`text-2xl mt-1 ${favurite.includes(d.id) ? "text-red-700 disabled " : "none"}`}   icon={faHeart} />
-                                    </button>
+                                    {
+                                        favurite.includes(d.id) ?
+                                            <button disabled >
+                                                <FontAwesomeIcon className="text-2xl mt-1 text-red-500 " icon={faHeart} />
+                                            </button> :
+                                            <button  >
+                                                <FontAwesomeIcon onMouseUp={showTostFun} onClick={() => isLikeFun(d.id)} className="text-2xl mt-1" icon={faHeart} />
+                                            </button>
+                                    }
+
+
                                 </div>
                             </div>
                         </div>)

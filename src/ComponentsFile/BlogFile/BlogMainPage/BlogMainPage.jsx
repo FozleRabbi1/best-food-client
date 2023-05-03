@@ -1,6 +1,4 @@
-import { PDFDownloadLink } from "@react-pdf/renderer";
 import Blog from "../Blog";
-import { Button } from "flowbite-react";
 import FooterPage from "../../SharedFile/FooterFile/FooterPage";
 
 const BlogMainPage = () => {
@@ -8,13 +6,10 @@ const BlogMainPage = () => {
         <div className="pb-4">
             <Blog></Blog>
 
-            <div className="mb-12">
-                <PDFDownloadLink document={<Blog></Blog>} fileName="FORM" >
-                    {({ loading }) => (loading ? <Button className="text-white">Download Document Pdf......</Button> : <Button className="text-white">Download</Button>)}
-                </PDFDownloadLink>
+            <div className=" pt-14">
+            <FooterPage></FooterPage>
             </div>
 
-            <FooterPage></FooterPage>
         </div>
     );
 };
