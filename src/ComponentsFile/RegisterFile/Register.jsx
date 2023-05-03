@@ -61,15 +61,15 @@ const Register = () => {
         }
 
         createUser(email, password)
-            .then(res => {
-                console.log(res)
+            .then(() => {
+                // console.log(res)
                 toast.success("register successful", {
                     position: "top-center"
                 })
 
                 updateUserData(name, photo)
-                    .then((res) => {
-                        console.log(res)
+                    .then(() => {
+                        // console.log(res)
                         // if (res.user) {
                         // console.log(res.user);
                         // logOutFun()

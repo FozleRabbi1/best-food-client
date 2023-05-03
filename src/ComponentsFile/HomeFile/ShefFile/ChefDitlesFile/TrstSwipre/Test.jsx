@@ -11,9 +11,16 @@ import "./Test.css";
 
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper";
+import { useEffect, useState } from "react";
 
-export default function Test({ foodDatas }) {
+export default function Test() {
     // console.log(foodDatas)
+    const [foodDatas, setFoodDatas] = useState([])
+    useEffect(()=>{
+        fetch("https://assignment-ten-server-fozlerabbi1.vercel.app/allFoods")
+        .then(res=> res.json())
+        .then(data => setFoodDatas(data))
+    }, [])
     return (
         <>
             <Swiper
@@ -33,7 +40,7 @@ export default function Test({ foodDatas }) {
                 className="mySwiper"
             >
                 {
-                    foodDatas.map((d, index) => <SwiperSlide key={index} >
+                    foodDatas?.map((d, index) => <SwiperSlide key={index} >
                         <img src={d.recipe.image} />
                     </SwiperSlide>)
                 }

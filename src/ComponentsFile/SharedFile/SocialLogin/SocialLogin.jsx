@@ -2,19 +2,24 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const SocialLogin = () => {
-    const { googleLogin, githubLogin } = useContext(AuthContext);
+    const { googleLogin, githubLogin, user } = useContext(AuthContext);
     const [error, setError] = useState("")
+    console.log(user)
 
     const googleLoginFun = () => {
         setError("")
         googleLogin()
-            .then(res => console.log(res))
+            .then(() => {
+                // console.log(res)
+            })
             .catch(err => setError(err.message))
     }
     const githubLoginFun = () => {
         setError("")
         githubLogin()
-            .then(res => console.log(res))
+            .then(() => {
+                // console.log(res)
+            })
             .catch(err => setError(err.message))
     }
 

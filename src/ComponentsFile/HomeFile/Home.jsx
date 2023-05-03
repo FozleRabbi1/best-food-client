@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import Carosule from "./CarosuleFile/Carosule";
 import "./Home.css";
 import Shef from "./ShefFile/Shef";
@@ -11,8 +11,9 @@ import FooterPage from "../SharedFile/FooterFile/FooterPage";
 
 
 const Home = () => {
-    const foodDatas = useLoaderData();
-    console.log(foodDatas)
+    // const foodDatas = useLoaderData();
+
+// {/* uters.jsx:18     GET https://assignment-ten-server-fozlerabbi1.vercel.app/allFoods net::ERR_INSUFFICIENT_RESOURCESloader */}
 
     return (
         <div className="main-div">
@@ -26,7 +27,11 @@ const Home = () => {
             </div>
 
             <div className="showAllrecipy-div pb-24 pt-8">
-                <Test foodDatas={foodDatas} ></Test>
+                {/* {
+                    foodDatas && <Test foodDatas={foodDatas} ></Test>
+                } */}
+                <Test></Test>
+                
             </div>
 
             <div className="">

@@ -15,7 +15,7 @@ const NavBar = () => {
     }
 
     const showNameFun = () => {
-        console.log("cool")
+        // console.log("cool")
         toast(user?.displayName, {
             position: "top-center"
         })

@@ -30,8 +30,8 @@ const Login = () => {
         const password = e.target.password.value;
 
         loginUser(email, password)
-            .then(res => {
-                console.log(res)
+            .then(() => {
+                // console.log(res)
                 // navigateNow();
             })
             .catch(err => {
