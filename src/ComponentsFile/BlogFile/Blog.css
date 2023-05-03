@@ -1,4 +1,5 @@
 .all-blogs div {
     box-shadow: 1px 1px 5px aqua;
     padding: 10px;
+    height: 320px;
 }
