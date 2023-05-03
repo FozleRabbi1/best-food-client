@@ -53,9 +53,10 @@ const ChefDitles = () => {
                     <h2 className="text-red-700">{data?.ChefName}</h2>
                     <p className="text-white"> <span className="text-green-400">Some info : </span> {data?.description}</p>
                     <ul className="mt-2">
-                        <li> <span className="text-green-400">Recipes</span> :  {data.NumbersOfRecipes}  </li>
-                        <li> <span className="text-green-400">Experience</span> :  {data.YearsOfExperience} Y  </li>
-                        <li> <span className="text-green-400">Likes</span> :  {data.Likes}  </li>
+                        {/* <li> <span className="text-green-400">Recipes</span> :  {data?.NumbersOfRecipes}  </li> */}
+                        <li> <span className="text-green-400">Experience</span> :  {data?.YearsOfExperience} Y  </li>
+                        <li> <span className="text-green-400">Likes</span> :  {data?.Likes}  </li>
+                        <li> <span className="text-green-400">Total recipes</span> :  {foods?.length}  </li>
                     </ul>
                 </div>
             </div>
