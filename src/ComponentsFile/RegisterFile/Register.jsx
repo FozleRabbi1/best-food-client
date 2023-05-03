@@ -1,6 +1,6 @@
 import { faEnvelope, faEye, faEyeSlash, faImage, faUnlockKeyhole, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../SharedFile/RegisterLoginStyle.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
@@ -13,9 +13,9 @@ const Register = () => {
     const [againShowPass, setAgainShowPass] = useState(false);
     const [showPass, setShowPass] = useState(false);
     const [error, setError] = useState("");
-    const { createUser, updateUserData } = useContext(AuthContext)
+    const { createUser, updateUserData, user } = useContext(AuthContext)
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     // logOut, ,
 
     // const logOutFun = () => {
@@ -24,10 +24,9 @@ const Register = () => {
     //     // navigate("/login")
     //     // <Navigate to={"/login"}></Navigate>
     // }
-    // if (user) {
-    //     // navigate("/")
-    //     // toast.success('Registerd successfull')
-    // }
+    if (user) {
+        navigate("/")
+    }
 
 
     const registerHandler = (e) => {

@@ -40,7 +40,7 @@ const ChefDitles = () => {
     }
     
     const showTostFun = () =>{
-        toast("select to favourite list")
+        toast("selected to favourite list")
     }
     // const hasCommonValues = foods.some(value => favurite.includes(value.id));
 
