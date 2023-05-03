@@ -5,3 +5,18 @@
 
 
  # some information about this project
+ * -This is a chef related project
+ * -there are have some international level chef information 
+ 
+
+ # How to build this project
+ * firebese
+ * contextApi
+ * react-router-dom
+ * tailwind 
+ * flowbite
+ * toast
+ * react icon (fortawesome)
+ * swiper
+ * react-lazy-load 
+ * ETC
